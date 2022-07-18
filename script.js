@@ -45,6 +45,16 @@ function clearDisplay() {
   displayValue = '';
 }
 
+function deleteInput() {
+  if (!displayValue) return;
+
+  displayValue = displayValue.slice(0, -1);
+  if (!displayValue)
+    spanOutput.textContent = '0';
+  else
+    spanOutput.textContent = displayValue;
+}
+
 function selectInput(e) {
   if (!e.target.type) return;
   let input = e.target.textContent;
@@ -55,6 +65,9 @@ function selectInput(e) {
       break;
     case input == 'C':
       clearDisplay();
+      break;
+    case input == 'DEL':
+      deleteInput();
       break;
   }
 }
