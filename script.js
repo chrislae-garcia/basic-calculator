@@ -33,6 +33,7 @@ function operate(operator, a, b) {
 
 let displayValue = '';
 const validInput = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
+let hasDecimal = false;
 
 function displayInput(input) {
   let char = input;
@@ -40,6 +41,12 @@ function displayInput(input) {
     operation = '';
     displayValue = '';
   }
+
+  if (char == '.' && !hasDecimal)
+    hasDecimal = true;
+  else if (char == '.' && hasDecimal)
+    return;
+
   displayValue += char;
   spanOutput.textContent = displayValue;
 }
@@ -75,6 +82,7 @@ function storeInput(operator) {
     displayValue = '';
 
   operation = operator;
+  hasDecimal = false;
 }
 
 function calculate() {
