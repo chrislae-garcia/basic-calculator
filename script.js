@@ -95,6 +95,13 @@ function positiveNegative() {
   spanOutput.textContent = displayValue;
 }
 
+function percentage() {
+  if (!displayValue) return;
+
+  displayValue = displayValue / 100;
+  spanOutput.textContent = displayValue;
+}
+
 function calculate() {
 
   valueStorage.push(displayValue);
@@ -129,6 +136,9 @@ function selectInput(e) {
       break;
     case input == '±':
       positiveNegative();
+      break;
+    case input == '%':
+      percentage(displayValue);
       break;
   }
 }
