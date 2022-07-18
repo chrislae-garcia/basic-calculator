@@ -46,7 +46,8 @@ function displayInput(input) {
 
   if (char == '.' && !hasDecimal)
     hasDecimal = true;
-  else if (char == '.' && hasDecimal)
+  else if (char == '.' && hasDecimal ||
+    (displayValue == '' && char == '0'))
     return;
 
   displayValue += char;
