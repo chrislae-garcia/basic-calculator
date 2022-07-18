@@ -57,15 +57,24 @@ function deleteInput() {
 
 const operatorInput = ['+', '—', 'x', '÷'];
 const valueStorage = [];
+let operation = '';
 
 function storeInput(operator) {
   if (!displayValue) return;
 
-  let operation = operator;
-
   valueStorage.push(displayValue);
-  displayValue += operation;
+  if(valueStorage.length > 1) {
+    let firstNumber = parseFloat(valueStorage.at(-2));
+    let secondNumber = parseFloat(valueStorage.at(-1));
+
+    let result = operate(operation, firstNumber, secondNumber);
+    valueStorage.pop();
+    valueStorage[0] = result;
+    displayValue = result;
+  }
+  operation = operator;
   spanOutput.textContent = displayValue;
+  displayValue = '';
 }
 
 function selectInput(e) {
