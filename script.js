@@ -40,6 +40,11 @@ function displayInput(input) {
   spanOutput.textContent = displayValue;
 }
 
+function clearDisplay() {
+  spanOutput.textContent = '0';
+  displayValue = '';
+}
+
 function selectInput(e) {
   if (!e.target.type) return;
   let input = e.target.textContent;
@@ -47,6 +52,9 @@ function selectInput(e) {
   switch (true) {
     case validInput.includes(input):
       displayInput(input);
+      break;
+    case input == 'C':
+      clearDisplay();
       break;
   }
 }
