@@ -22,11 +22,11 @@ function operate(operator, a, b) {
   switch (thisOperator) {
     case '+':
       return add(a, b);
-    case '-':
+    case '—':
       return subtract(a, b);
-    case '*':
+    case 'x':
       return multiply(a, b);
-    case '/':
+    case '÷':
       return divide(a, b);
   }
 }
