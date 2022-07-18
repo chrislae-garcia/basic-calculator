@@ -36,6 +36,10 @@ const validInput = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
 
 function displayInput(input) {
   let char = input;
+  if (operation == '=') {
+    operation = '';
+    displayValue = '';
+  }
   displayValue += char;
   spanOutput.textContent = displayValue;
 }
