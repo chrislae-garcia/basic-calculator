@@ -36,6 +36,8 @@ const validInput = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
 let hasDecimal = false;
 
 function displayInput(input) {
+  if (displayValue.length >= 9) return;
+
   let char = input;
   if (operation == '=') {
     operation = '';
