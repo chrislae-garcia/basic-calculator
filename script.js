@@ -88,6 +88,13 @@ function storeInput(operator) {
   hasDecimal = false;
 }
 
+function positiveNegative() {
+  if (!displayValue) return;
+
+  displayValue = displayValue * -1;
+  spanOutput.textContent = displayValue;
+}
+
 function calculate() {
 
   valueStorage.push(displayValue);
@@ -119,6 +126,9 @@ function selectInput(e) {
       break;
     case operatorInput.includes(input):
       storeInput(input);
+      break;
+    case input == '±':
+      positiveNegative();
       break;
   }
 }
