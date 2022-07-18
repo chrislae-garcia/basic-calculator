@@ -34,16 +34,21 @@ function operate(operator, a, b) {
 let displayValue = '';
 const validInput = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
 
-function displayToScreen(e) {
+function displayInput(input) {
+  let char = input;
+  displayValue += char;
+  spanOutput.textContent = displayValue;
+}
+
+function selectInput(e) {
   if (!e.target.type) return;
   let input = e.target.textContent;
 
   switch (true) {
     case validInput.includes(input):
-      displayValue += input;
-      spanOutput.textContent = displayValue;
+      displayInput(input);
       break;
   }
 }
 
-window.addEventListener('click', displayToScreen);
+window.addEventListener('click', selectInput);
