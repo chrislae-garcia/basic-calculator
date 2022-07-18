@@ -55,6 +55,19 @@ function deleteInput() {
     spanOutput.textContent = displayValue;
 }
 
+const operatorInput = ['+', '—', 'x', '÷'];
+const valueStorage = [];
+
+function storeInput(operator) {
+  if (!displayValue) return;
+
+  let operation = operator;
+
+  valueStorage.push(displayValue);
+  displayValue += operation;
+  spanOutput.textContent = displayValue;
+}
+
 function selectInput(e) {
   if (!e.target.type) return;
   let input = e.target.textContent;
@@ -68,6 +81,9 @@ function selectInput(e) {
       break;
     case input == 'DEL':
       deleteInput();
+      break;
+    case operatorInput.includes(input):
+      storeInput(input);
       break;
   }
 }
