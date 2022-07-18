@@ -55,15 +55,29 @@ function deleteInput() {
     spanOutput.textContent = displayValue;
 }
 
-const operatorInput = ['+', '—', 'x', '÷'];
+const operatorInput = ['+', '—', 'x', '÷', '='];
 const valueStorage = [];
 let operation = '';
 
 function storeInput(operator) {
   if (!displayValue) return;
 
+  calculate();
+  spanOutput.textContent = displayValue;
+
+  if (operator == '=')
+    valueStorage.pop();
+  else
+    displayValue = '';
+
+  operation = operator;
+}
+
+function calculate() {
+
   valueStorage.push(displayValue);
-  if(valueStorage.length > 1) {
+
+  if (valueStorage.length > 1) {
     let firstNumber = parseFloat(valueStorage.at(-2));
     let secondNumber = parseFloat(valueStorage.at(-1));
 
@@ -72,9 +86,6 @@ function storeInput(operator) {
     valueStorage[0] = result;
     displayValue = result;
   }
-  operation = operator;
-  spanOutput.textContent = displayValue;
-  displayValue = '';
 }
 
 function selectInput(e) {
