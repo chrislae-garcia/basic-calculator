@@ -9,11 +9,17 @@ function subtract(a, b) {
 }
 
 function multiply(a, b) {
-  return (a * b).toFixed(2);
+  let product = a * b;
+
+  if (product.toString().length > 9 ) return product.toFixed(2);
+  return product;
 }
 
 function divide(a, b) {
-  return (a / b).toFixed(2);
+  let quotient = a / b;
+
+  if (quotient.toString().length > 9 ) return quotient.toFixed(2);
+  return quotient;
 }
 
 function operate(operator, a, b) {
